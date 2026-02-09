@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>hey hey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Important Question 👀</title>
+
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -20,6 +20,13 @@
       overflow: hidden;
       color: white;
       text-align: center;
+      flex-direction: column;
+    }
+
+    .gif {
+      width: clamp(100px, 25vw, 150px);
+      margin-bottom: -20px; /* pulls GIF slightly above the box */
+      z-index: 5;
     }
 
     .box {
@@ -30,6 +37,7 @@
       max-width: 360px;
       min-width: 260px;
       position: relative;
+      z-index: 2;
     }
 
     h1 {
@@ -37,15 +45,10 @@
       margin-bottom: 16px;
     }
 
-    p {
-      font-size: clamp(14px, 4vw, 18px);
-    }
-
     .buttons {
       display: flex;
-      justify-content: space-around;
-      margin-top: 20px;
       gap: 10px;
+      margin-top: 20px;
     }
 
     button {
@@ -87,13 +90,20 @@
     }
   </style>
 </head>
+
 <body>
 
+  <img 
+    class="gif" 
+    src="https://media.tenor.com/VIChDQ6ejRQAAAAj/jumping-bear-hearts-no-png.gif" 
+    alt="cute bear"
+  >
+
   <div class="box" id="box">
-    <h1>Hey girlfriend, will you be my valentine</h1>
+    <h1>Will you be my Valentine? 💘</h1>
     <div class="buttons">
-      <button id="yesBtn" onclick="yes()">YES</button>
-      <button id="noBtn" onclick="no()">No</button>
+      <button id="yesBtn" onclick="yes()">Yes ❤️</button>
+      <button id="noBtn" onclick="no()">No 😐</button>
     </div>
   </div>
 
@@ -107,8 +117,8 @@
 
     function yes() {
       document.getElementById("box").innerHTML = `
-        <h1>You're the goat kiss kiss 😘😘</h1>
-        <p>Shoutout you bae <3</p>
+        <h1>AYYYY 🥹❤️</h1>
+        <p>Best Valentine ever.</p>
       `;
       explodeHearts();
     }
@@ -120,22 +130,20 @@
       const originX = rect.left + rect.width / 2;
       const originY = rect.top + rect.height / 2;
 
-      for (let i = 0; i < 25; i++) {
+      for (let i = 0; i < 30; i++) {
         const heart = document.createElement("div");
         heart.className = "heart";
         heart.innerHTML = "❤️";
-
         heart.style.left = originX + "px";
         heart.style.top = originY + "px";
 
-        const x = (Math.random() - 0.5) * 300;
-        const y = (Math.random() - 0.5) * 300;
+        const x = (Math.random() - 0.5) * window.innerWidth * 0.5;
+        const y = (Math.random() - 0.5) * window.innerHeight * 0.5;
 
         heart.style.setProperty("--x", x + "px");
         heart.style.setProperty("--y", y + "px");
 
         document.body.appendChild(heart);
-
         setTimeout(() => heart.remove(), 1500);
       }
     }
@@ -143,5 +151,3 @@
 
 </body>
 </html>
-
-
