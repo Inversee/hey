@@ -95,17 +95,10 @@
 
   <img 
     class="gif" 
-    src="https://media.tenor.com/VIChDQ6ejRQAAAAj/jumping-bear-hearts-no-png.gif" 
-    alt="cute bear"
+    src="" 
+    alt=""
   >
 
-  <div class="box" id="box">
-    <h1>Hey girlfriend, will you be my valentine?</h1>
-    <div class="buttons">
-      <button id="yesBtn" onclick="yes()">YES</button>
-      <button id="noBtn" onclick="no()">No 👎</button>
-    </div>
-  </div>
 
   <script>
     let scale = 1;
@@ -114,38 +107,6 @@
       scale += 0.25;
       document.getElementById("yesBtn").style.transform = `scale(${scale})`;
     }
-
-    function yes() {
-      document.getElementById("box").innerHTML = `
-        <h1>Ayy you're the goat 😘😘</h1>
-        <p>Shoutout you bae <3</p>
-      `;
-      explodeHearts();
-    }
-
-    function explodeHearts() {
-      const box = document.getElementById("box");
-      const rect = box.getBoundingClientRect();
-
-      const originX = rect.left + rect.width / 2;
-      const originY = rect.top + rect.height / 2;
-
-      for (let i = 0; i < 30; i++) {
-        const heart = document.createElement("div");
-        heart.className = "heart";
-        heart.innerHTML = "❤️";
-        heart.style.left = originX + "px";
-        heart.style.top = originY + "px";
-
-        const x = (Math.random() - 0.5) * window.innerWidth * 0.5;
-        const y = (Math.random() - 0.5) * window.innerHeight * 0.5;
-
-        heart.style.setProperty("--x", x + "px");
-        heart.style.setProperty("--y", y + "px");
-
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 1500);
-      }
     }
   </script>
 
